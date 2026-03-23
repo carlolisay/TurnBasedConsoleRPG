@@ -27,6 +27,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="StoneGolem.h" />
+    <ClInclude Include="Vampire.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Battle.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="StoneGolem.cpp" />
+    <ClCompile Include="Vampire.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

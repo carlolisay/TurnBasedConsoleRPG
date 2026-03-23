@@ -3,6 +3,9 @@
 #include "StoneGolem.h"
 #include "Slime.h"
 #include "Mage.h"
+#include "Player.h"
+#include "Vampire.h"
+
 #include <iostream>
 #include <string>
 
@@ -18,8 +21,9 @@ int main()
     //StoneGolem stonegolem{ "Stone Golem", 200, 100 };
     //Battle     battle{ player, stonegolem };
     Mage mage{ "Mage" };
+	Vampire vampire{ "Vampire", 120, 40 };
     Slime slime{ "Slime", 150, 50 };
-    Battle     battle{ mage, slime };
+    Battle     battle{ mage, vampire };
     battle.run();
 
     return 0;
