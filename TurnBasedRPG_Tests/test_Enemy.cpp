@@ -107,7 +107,35 @@ TEST_CASE("Enemy::recoverFromBreak") {
 		CHECK(e.isBroken() == false);
 	}
 	// add remaining subcases
-	
+	SUBCASE("restore Toughness after break") {
+		e.reduceToughness(maxToughness);
+		REQUIRE(e.isBroken() == true);
+		e.recoverFromBreak();
+		CHECK(e.getToughness() > 0);
+	}
+	SUBCASE("Toughness must not be zero after recover") {
+		e.reduceToughness(maxToughness);
+		REQUIRE(e.isBroken() == true);
+		CHECK(e.getToughness() != 0);
+	}
+	SUBCASE("recoverToughness does not affect health when recover") {
+		const int beforHp = e.getHp();
+		e.reduceToughness(maxToughness);
+		REQUIRE(e.isBroken() == true);
+
+		e.recoverFromBreak();
+		CHECK(e.getHp() == beforHp);
+	}
+	SUBCASE("Toughness can be broken again after recovery") {
+		e.reduceToughness(maxToughness);
+		REQUIRE(e.isBroken() == true);
+
+		e.recoverFromBreak();
+		REQUIRE(e.isBroken() == false);
+
+		e.reduceToughness(maxToughness);
+		CHECK(e.isBroken() == true);
+	}
 }
 TEST_CASE("Enemy::performAttack returns damage") {
 	// write this test case
